@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier un enfant{% endblock %}
+
+{% block body %}
+    <h1>Modifier un enfant</h1>
+
+     <div style="display: flex; justify-content: center;">
+        <div style="box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.6); padding: 10px;">
+
+    {{ include('back/child/_form.html.twig', {'button_label': 'Modifier'}) }}
+    {{ include('back/child/_delete_form.html.twig') }}
+
+            </div>      
+    </div>
+
+    <a href="{{ path('app_back_child_index') }}" class="btn btn-primary">Retour à la liste</a>
+
+{% endblock %}

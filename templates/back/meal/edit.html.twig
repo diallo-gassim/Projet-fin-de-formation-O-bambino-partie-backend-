@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier le menu{% endblock %}
+
+{% block body %}
+    <h1>modifier le menu</h1>
+
+<div style="display: flex; justify-content: center;">
+        <div style="box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.6); padding: 10px;">
+        
+    {{ include('back/meal/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('back/meal/_delete_form.html.twig') }}
+        </div>
+</div>
+
+    <a href="{{ path('app_back_meal_index') }}" class="btn btn-primary">Revenir aux menus de la semaine</a>
+
+
+{% endblock %}

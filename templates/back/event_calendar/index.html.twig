@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}EventCalendar index{% endblock %}
+
+{% block body %}
+    <h1>Calendrier des événements</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Début</th> 
+                <th>Fin</th> 
+                <th>Actions</th> 
+            </tr>
+        </thead>
+        <tbody>
+        {% for event_calendar in event_calendars %}
+            <tr>
+                <td>{{ event_calendar.title }}</td> 
+                <td>{{ event_calendar.start ? event_calendar.start.format('d-m-Y') : '' }}</td> 
+                <td>{{ event_calendar.end ? event_calendar.end.format('d-m-Y') : '' }}</td> 
+                <td>
+                    {# <a href="{{ path('app_back_event_calendar_show', {'id': event_calendar.id}) }}" class="btn btn-secondary">Voir</a> #}
+                    <a href="{{ path('app_back_event_calendar_edit', {'id': event_calendar.id}) }}" class="btn btn-warning">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Aucun événement à venir </td> 
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+ <a href="{{ path('app_back_backoffice') }}" class="btn btn-primary">Retour à l'accueil</a> 
+    <a href="{{ path('app_back_event_calendar_new') }}" class="btn btn-dark">crée un l'événement</a>
+{% endblock %}

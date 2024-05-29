@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Events index{% endblock %}
+
+{% block body %}
+    <h1>infos flash</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>FutureEvent</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for event in events %}
+            <tr>
+                <td>{{ event.id }}</td>
+                <td>{{ event.futureEvent }}</td>
+                <td>
+                    <a href="{{ path('app_back_future_events_show', {'id': event.id}) }}" class="btn btn-primary">Voir</a>
+                    
+                    <a href="{{ path('app_back_future_events_edit', {'id': event.id}) }}" class="btn btn-warning">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_back_future_events_new') }}" class="btn btn-dark">Créer un nouvel évenement</a>
+    <a href="{{ path('app_back_backoffice') }}" class="btn btn-primary">Retour à l'accueil</a>
+{% endblock %}

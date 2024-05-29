@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Menus{% endblock %}
+
+{% block body %}
+    <h1 style="text-align: center; margin-bottom: 10rem;">Menus</h1>
+
+    <a href="{{ path('app_back_backoffice') }}" class="btn btn-primary">Retour à l'accueil</a>
+
+    <a href="{{ path('app_back_meal_new') }}" class="btn btn-dark">Créer un nouveau menu</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>entrée</th>
+                <th>plat</th>
+                <th>Dessert</th>
+                <th>goûter</th>
+                <th>Date</th>
+                <th>Jour de la semaine</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for meal in meals %}
+                <tr>
+                    <td>{{ meal.starter }}</td>
+                    <td>{{ meal.mainMeal }}</td>
+                    <td>{{ meal.dessert }}</td>
+                    <td>{{ meal.snack }}</td>
+                    <td>{{ meal.date ? meal.date|date('m-d-Y')}}</td>
+                    <td>{{ meal.WeekDay }}</td>
+                    <td>
+                        <a href="{{ path('app_back_meal_show', {'id': meal.id}) }}" class="btn btn-primary">Voir</a>
+                        <a href="{{ path('app_back_meal_edit', {'id': meal.id}) }}" class="btn btn-warning">Modifier</a>
+                        
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="7">Aucun menu</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

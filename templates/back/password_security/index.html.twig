@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier le mot de passe{% endblock %}
+
+{% block body %}
+
+
+
+    <h1>Modifier le mot de passe</h1>
+
+    {{ form(form) }}  
+        {# {{ form_row(form.oldPassword) }} #}
+        {# {{ form_row(form.newPassword) }}
+        {{ form_row(form.confirmPassword) }}  #}
+         {# <button type="submit" class="btn btn-primary">Modifier le mot de passe</button> #}
+    {{ form_end(form) }}
+    
+
+    <button>
+        <a href="{{ path('app_back_user_index') }}">Annulez et revenir a la liste</a>
+    </button> 
+{% endblock %}

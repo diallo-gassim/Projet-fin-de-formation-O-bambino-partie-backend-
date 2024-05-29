@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Absence{% endblock %}
+
+{% block body %}
+    <h1>Absence</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ absence.child.firstname }}</td>
+            </tr>
+            <tr>
+                <th>Debut absence</th>
+                <td>{{ absence.startDate ? absence.startDate|date('d-m-Y')}}</td>
+            </tr>
+            <tr>
+                <th>Fin absence</th>
+                <td>{{ absence.endDate ? absence.endDate|date('d-m-Y')}}</td>
+            </tr>
+            <tr>
+                <th>Commentaire</th>
+                <td>{{ absence.comment }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <td>
+        <a class="btn btn-primary" href="{{ path('app_back_absence_index') }}">Retour a la liste</a> <br>
+
+        <a class="btn btn-warning" href="{{ path('app_back_absence_edit', {'id': absence.id}) }}">Modifier</a>
+    </td>
+
+    {{ include('back/absence/_delete_form.html.twig') }}
+{% endblock %}

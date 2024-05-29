@@ -1,0 +1,24 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Page non trouvée{% endblock title %}
+
+{% block body %}
+    <div style="text-align: center; padding: 50px;">
+        <h1 style="font-size: 5em; color: #28a745;">Oops !</h1>
+        <h5 style="font-size: 2em; color: #28a745;"">La page que vous cherchez n'existe pas.</h5>
+        <h5 style="font-size: 3em; color: #28a745;">Erreur 404</h5>
+        <img src="{{ asset('images/matrix-travolta.gif') }}" alt="404 Image" style="width: 50%; max-width: 800px; margin-top: 20px;">
+
+        <p style="margin-top: 20px;">
+            <a href="{{ path('app_back_backoffice') }}" class="btn btn-success btn-reset">Retourner à la page d'accueil</a>
+
+        </p>
+
+        {% if app.environment == 'dev' %}
+            <p style="margin-top: 20px; color: #28a745; font-weight: bold;">
+                Mode de développement - Les détails de l'erreur sont affichés ci-dessous :
+            </p>
+            <p style="color: #28a745; font-weight: bold;">{{ exception.message }}</p>
+        {% endif %}
+    </div>
+{% endblock body %}

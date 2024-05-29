@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des utilisateurs{% endblock %}
+
+{% block body %}
+{{ parent() }}
+    <h1 style="text-align: center; margin-bottom: 10rem;">Liste des utilisateurs</h1>
+
+    
+
+
+    <a href="{{ path('app_back_backoffice') }}" class="btn btn-primary">Retour à l'accueil</a> 
+    <table class="table">
+        <thead>
+            <tr>
+                
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Email</th>
+                 <th>Voir</th>
+                <th>Modifier</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+        
+            <tr>
+                <td>{{ user.lastname }}</td>
+                <td>{{ user.firstname }}</td>
+                <td>{{ user.email }}</td>
+                <td>
+                    <a href="{{ path('app_back_user_show', {'id': user.id}) }}"class="btn btn-primary">Voir</a>
+                </td>
+                <td>
+                    <a href="{{ path('app_back_user_edit', {'id': user.id}) }}"class="btn btn-warning">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">aucun utilisateur trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_back_user_new') }}" class="btn btn-dark">Ajouter un utilisateur</a>
+{% endblock %}

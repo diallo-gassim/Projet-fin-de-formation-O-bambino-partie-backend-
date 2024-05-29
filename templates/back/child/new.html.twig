@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un enfant{% endblock %}
+
+{% block body %}
+    <h1>Ajouter un enfant</h1>
+
+ <div style="display: flex; justify-content: center;">
+        <div style="box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.6); padding: 10px;">
+
+    {{ include('back/child/_form.html.twig') }}
+    
+            </div>
+    </div>
+
+    <a href="{{ path('app_back_child_index') }}" class="btn btn-primary">retour à la liste</a>
+{% endblock %}

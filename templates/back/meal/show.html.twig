@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Menu{% endblock %}
+
+{% block body %}
+    <h1>Repas</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Entrée</th>
+                <td>{{ meal.starter }}</td>
+            </tr>
+            <tr>
+                <th>Plat</th>
+                <td>{{ meal.mainMeal }}</td>
+            </tr>
+            <tr>
+                <th>Dessert</th>
+                <td>{{ meal.dessert }}</td>
+            </tr>
+            <tr>
+                <th>Gouter</th>
+                <td>{{ meal.snack }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ meal.date ? meal.date|date('m-d-Y') : '' }}</td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="{{ path('app_back_meal_index') }}" class="btn btn-primary">Revenir aux menus de la semaine</a><br>
+                    <a href="{{ path('app_back_meal_edit', {'id': meal.id}) }}" class="btn btn-warning">Modifier</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    {{ include('back/meal/_delete_form.html.twig') }}
+{% endblock %}

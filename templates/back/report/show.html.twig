@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Rapport{% endblock %}
+
+{% block body %}
+    <h1>Rapport</h1>
+
+    <table class="table">
+        <tbody>
+        
+            <tr>
+                <th>Date du rapport</th>
+                <td>{{ report.dateReport ? report.dateReport|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Rapport du repas</th>
+                <td>{{ report.mealReport }}</td>
+            </tr>
+            <tr>
+                <th>Rapport des toilettes</th>
+                <td>{{ report.toiletReport }}</td>
+            </tr>
+            <tr>
+                <th>Rapport de la sieste</th>
+                <td>{{ report.sleepReport }}</td>
+            </tr>
+       
+            <tr>
+                <th>Commentaires</th>
+                <td>{{ report.reminder }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_back_report_index') }} "class="btn btn-primary">retour à la liste</a>
+
+    <a href="{{ path('app_back_report_edit', {'id': report.id}) }}"class="btn btn-warning">Modifier</a>
+
+    {{ include('back/report/_delete_form.html.twig') }}
+{% endblock %}

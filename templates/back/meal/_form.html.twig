@@ -1,0 +1,19 @@
+
+
+
+
+
+{{ form_start(form) }}
+
+    {{ form_row(form.date, {'attr': {'class': 'form-control form-control-lg'}}) }}
+    {{ form_row(form.weekDay, {'attr': {'class': 'form-control form-control-lg'}}) }}
+    {{ form_row(form.starter, {'attr': {'class': 'form-control form-control-lg'}}) }}
+    {{ form_row(form.mainMeal, {'attr': {'class': 'form-control form-control-lg'}}) }}
+    {{ form_row(form.dessert, {'attr': {'class': 'form-control form-control-lg'}}) }}
+    {{ form_row(form.snack, {'attr': {'class': 'form-control form-control-lg'}}) }}
+
+    {{ form_widget(form.save, {'attr': {'class': 'btn btn-success'}}) }}
+    
+{{ form_end(form) }}
+
+   

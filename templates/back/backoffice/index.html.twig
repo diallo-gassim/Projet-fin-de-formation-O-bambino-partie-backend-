@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Backoffice{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/Obambino.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap">
+{% endblock %}
+
+{% block body %}
+<body style=" background: linear-gradient(to right, #74ebd5, #acb6e5);;">
+
+
+
+<h1>Backoffice</h1>
+
+
+
+<div class="d-flex flex-column align-items-center gap-5 flex-lg-row justify-content-around">
+
+    <div class="card_left m-4" style="width: 18rem;box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.6);col-12">
+    <a href="{{ path('app_back_user_index') }}">
+        <img src="{{ asset('images/utilisateur.png') }}" class="card-img-top" alt="utilisateur" style="max-width: 300px; max-height: 200px;">
+        </a>
+        <div class="card-body">
+            <h5 class="card-title">Gestion des utilisateurs</h5> 
+        </div>
+    </div>
+
+    <div class="card_middle" style="width: 18rem;box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.6);">
+    <a href="{{ path('app_back_child_index') }}">
+        <img src="{{ asset('images/enfants.png') }}" class="card-img-top" alt="Gestion des bambino" style="max-width: 300px; max-height: 200px;">
+        </a>
+        <div class="card-body">
+            <h5 class="card-title">Gestion des bambinos</h5>
+        </div>
+    </div>
+
+    <div class="card_middle" style="width: 18rem;box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.6);">
+     <a href="{{ path('app_back_absence_index') }}">
+        <img src="{{ asset('images/absent.jpeg') }}" class="card-img-top" alt="Gestion des absences" style="max-width: 300px; max-height: 200px;">
+        </a>
+        <div class="card-body">
+            <h5 class="card-title">Gestion des absences</h5>
+        </div>
+    </div>
+
+    <div class="card_middle" style="width: 18rem;box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.6);">
+        <a href="{{ path('app_back_meal_index') }}">
+            <img src="{{ asset('images/repas.jpeg') }}" class="card-img-top" alt="Gestion des menus" style="max-width: 300px; max-height: 200px;">
+        </a>
+        <div class="card-body">
+            <h5 class="card-title">Gestion des menus</h5>
+        </div>
+    </div>
+
+    <div class="card_middle" style="width: 18rem;box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.6);">
+        <a href="{{ path('app_back_report_index') }}">
+            <img src="{{ asset('images/rapport.jpeg') }}" class="card-img-top" alt="rapport des enfants" style="max-width: 300px; max-height: 200px;">
+        </a>
+        <div class="card-body">
+            <h5 class="card-title">Rapport journalier de nos bambinos</h5>
+        </div>
+    </div>
+    <div class="card_right m-4" style="width: 18rem;box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.6);">
+        <a href="{{ path('app_back_event_calendar_index') }}">
+            <img src="{{ asset('images/calendrier.png') }}" class="card-img-top" alt="calendrier des évenements" style="max-width: 300px; max-height: 200px;">
+        </a>
+        <div class="card-body">
+            <h5 class="card-title">Calendrier des évenements</h5>
+        </div>
+    </div>
+    <div class="card_right m-4" style="width: 18rem;box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.6);">
+        <a href="{{ path('app_back_future_events_index') }}">
+            <img src="{{ asset('images/delorean.jpeg') }}" class="card-img-top" alt="calendrier des évenements" style="max-width: 300px; max-height: 200px;">
+        </a>
+        <div class="card-body">
+            <h5 class="card-title">Infos flash</h5>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+

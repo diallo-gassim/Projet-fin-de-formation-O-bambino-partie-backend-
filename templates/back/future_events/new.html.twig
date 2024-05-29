@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Events{% endblock %}
+
+{% block body %}
+    <h1>Créer une nouvelle info flash</h1>
+
+    {{ include('back/future_events/_form.html.twig') }}
+
+    
+    <a href="{{ path('app_back_future_events_index') }}" class="btn btn-secondary">Revenir à la liste</a>
+{% endblock %}

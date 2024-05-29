@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Absence index{% endblock %}
+
+{% block body %}
+
+    <h1 style="text-align: center; margin-bottom: 10rem;">Liste absences</h1>
+
+    <a href="{{ path('app_back_backoffice') }}" class="btn btn-primary">Retour à l'accueil</a> 
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Enfant</th>
+                <th>Debut absence</th>
+                <th>Fin absence</th>
+                <th>Commentaire</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for absence in absences %}
+        
+            <tr>
+                <td>{{ absence.child.firstname }}</td>
+                <td>{{ absence.startDate ? absence.startDate|date('d-m-Y') : '' }}</td>
+                <td>{{ absence.endDate ? absence.endDate|date('d-m-Y') : '' }}</td>
+                <td>{{ absence.comment }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('app_back_absence_show', {'id': absence.id}) }}">Voir</a>
+                    <a class="btn btn-warning" href="{{ path('app_back_absence_edit', {'id': absence.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Pas de données</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-dark" href="{{ path('app_back_absence_new') }}">+ Nouvelle absence</a>
+{% endblock %}

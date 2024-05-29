@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Report index{% endblock %}
+
+{% block body %}
+    <h1 style="text-align: center; margin-bottom: 10rem;">Rapport journalier</h1>
+
+   
+
+    <a href="{{ path('app_back_backoffice') }}" class="btn btn-primary">Retour à l'accueil</a> 
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Enfant</th>
+                <th>Date du rapport</th>
+                <th>Rapport du repas</th>
+                <th>Rapport des besoins</th>
+                <th>Rapport de la sieste</th>
+                <th>Commentaires</th>
+                <th>Action</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+        {% for report in reports %}
+        
+            <tr>
+                <td>{{ report.childReport.firstname }}</td>
+                <td>{{ report.dateReport ? report.dateReport|date('d-m-Y') : '' }}</td>
+                <td>{{ report.mealReport }}</td>
+                <td>{{ report.toiletReport }}</td>
+                <td>{{ report.sleepReport }}</td>
+                <td>{{ report.reminder }}</td>
+                <td>
+                    <a href="{{ path('app_back_report_show', {'id': report.id}) }}" class="btn btn-secondary">voir</a>
+                    <a href="{{ path('app_back_report_edit', {'id': report.id}) }}" class="btn btn-warning">modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_back_report_new') }}" class="btn btn-dark">Créer un nouveau rapport</a>
+{% endblock %}

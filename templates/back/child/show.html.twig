@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Child{% endblock %}
+
+{% block body %}
+    <h1>{{ child.firstname }}{{ child.lastname }}</h1>
+
+    <table class="table">
+        <tbody>
+            
+            <tr>
+                <th>Nom</th>
+                <td>{{ child.lastname }}</td>
+            </tr>
+            <tr>
+                <th>Prénom</th>
+                <td>{{ child.firstname }}</td>
+            </tr>
+            <tr>
+                <th>Date de naissance</th>
+                <td>{{ child.birthday ? child.birthday|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Genre</th>
+                <td>{{ child.gender }}</td>
+            </tr>
+            <tr>
+                <th>Regime alimentaire</th>
+                <td>{{ child.diet }}</td>
+            </tr>
+            
+            <tr>
+                <th>Parent</th>
+                <td>
+                    {% if child.user is not null %}
+                    {{ child.user.firstname}} {{child.user.lastname }}
+                    {% else %}
+                    Aucun parent associé
+                    {% endif %}
+                </td> 
+            </tr>
+        </tbody>
+    </table>
+
+     <a href="{{ path('app_back_child_index') }} "class="btn btn-primary">retour à la liste</a>
+
+    <a href="{{ path('app_back_child_edit', {'id': child.id}) }}"class="btn btn-warning">Modifier</a>
+
+    {{ include('back/child/_delete_form.html.twig') }}
+{% endblock %}

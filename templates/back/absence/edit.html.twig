@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification Absence{% endblock %}
+
+{% block body %}
+    <h1>Modification Absence</h1>
+    
+
+<div style="display: flex; justify-content: center;">
+        <div style="box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.6); padding: 10px;">
+    {{ include('back/absence/_form.html.twig', {'button_label': 'Modifier'}) }}
+    {{ include('back/absence/_delete_form.html.twig') }}
+        </div>
+</div>
+
+    <a class="btn btn-primary" href="{{ path('app_back_absence_index') }}">Retour a la liste</a>
+
+{% endblock %}

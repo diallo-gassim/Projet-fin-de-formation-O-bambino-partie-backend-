@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Evénement{% endblock %}
+
+{% block body %}
+    <h1>Evénement</h1>
+
+    <table class="table">
+        <tbody>
+
+            <tr>
+                <th>Evénement</th>
+                <td>{{ event_calendar.title }}</td>
+            </tr>
+           
+            <tr>
+                <th>Date du début</th>
+                <td>{{ event_calendar.start ? event_calendar.start.format('d-m-Y') : '' }}</td>
+            </tr>
+            
+            <tr>
+                <th>Date de fin</th>
+                <td>{{ event_calendar.end ? event_calendar.end.format('d-m-Y') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary" a href="{{ path('app_back_event_calendar_index') }}">Retour à la liste</a>
+
+    <a class="btn btn-warning" a href="{{ path('app_back_event_calendar_edit', {'id': event_calendar.id}) }}">Modifier</a>
+
+    {{ include('back/event_calendar/_delete_form.html.twig') }}
+{% endblock %}
